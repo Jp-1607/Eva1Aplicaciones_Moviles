@@ -1,11 +1,14 @@
-import java.time.LocalDateTime
+import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
+import kotlin.time.Clock
 
 abstract class Consola(
     val codigo: String,
     val marca: String,
     val modelo: String,
     val usuario: TipoUsuario,
-    val fechaIngreso: LocalDateTime = LocalDateTime.now()
+    val fechaIngreso: LocalDateTime = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
 ) {
     abstract val tipoConsola: String
 
